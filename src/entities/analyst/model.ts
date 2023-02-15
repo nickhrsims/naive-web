@@ -4,6 +4,37 @@ import * as config from './config';
 
 // --- Types
 
+/**
+ * Domain primitive over an analysts initials.
+ *
+ * @param {string} initials - Initials of analyst.
+ * */
+class NaiveAnalystInitials {
+    private data: string;
+
+    constructor(initials: string) {
+        // Validity Predicates
+        const areInitialsDefined = initials !== undefined && initials !== null;
+        const areInitialsLongEnough = initials.length >= config.minChars;
+        const areInitialsShortEnough = initials.length <= config.maxChars;
+
+        // Composite Validity Predicates
+        const areInitialsValid =
+            areInitialsDefined && areInitialsLongEnough && areInitialsShortEnough;
+
+        if (!areInitialsValid) {
+            throw new Error('Initials are invalid');
+        }
+
+        this.data = initials;
+    }
+
+    get value(): string {
+        return this.data;
+    }
+}
+
+// TODO Domain primitives over initials
 class NaiveAnalyst {
     // FIXME
     private initials: string;
