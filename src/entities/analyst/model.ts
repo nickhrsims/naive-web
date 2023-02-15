@@ -1,5 +1,7 @@
 import { atom, useAtom } from 'jotai';
 
+import * as config from './config';
+
 // --- Types
 
 class NaiveAnalyst {
