@@ -1,5 +1,7 @@
+import { Heading } from '@chakra-ui/react';
+
 function Fixture() {
-    return <h1>I am a dummy fixture</h1>;
+    return <Heading>I am a dummy fixture</Heading>;
 }
 
 export default Fixture;
