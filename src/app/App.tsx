@@ -1,8 +1,10 @@
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
-}
+import Providers from './providers';
+import { DummyPage } from 'pages/dummy';
 
-export default App;
+export default function App() {
+    return (
+        <Providers>
+            <DummyPage />
+        </Providers>
+    );
+}
