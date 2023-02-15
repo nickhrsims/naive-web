@@ -3,6 +3,7 @@ import { atom, useAtom } from 'jotai';
 // --- Types
 
 class NaiveAnalyst {
+    // FIXME
     private initials: string;
 
     constructor(initials: string) {
