@@ -12,6 +12,8 @@ import * as config from './config';
 class NaiveAnalystInitials {
     private data: string;
 
+    // FIXME
+    // All validation should be pushed through the zod pipeline
     constructor(initials: string) {
         // Validity Predicates
         const areInitialsDefined = initials !== undefined && initials !== null;
