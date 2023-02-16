@@ -40,7 +40,7 @@ export function useInitialsField(): [
     return [initials, handleChange];
 }
 
-export function useActionHandler(): [SyncState<string>, () => void] {
+export function useActionHandler(): () => void {
     const [initials] = useInitialsField();
     const auth = analystModel.useAuth();
 
@@ -48,5 +48,5 @@ export function useActionHandler(): [SyncState<string>, () => void] {
         auth.signIn(initials.value);
     };
 
-    return [initials, handleAction];
+    return handleAction;
 }

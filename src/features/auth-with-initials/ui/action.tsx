@@ -7,7 +7,8 @@ import * as model from '../model';
 interface Props extends ComponentProps<typeof Button> {}
 
 export default function Action(props: Props) {
-    const [initials, handleAction] = model.useActionHandler();
+    const [initials] = model.useInitialsField();
+    const handleAction = model.useActionHandler();
 
     return <Button {...props} isDisabled={!initials.isValid} onClick={handleAction} />;
 }
