@@ -60,31 +60,54 @@ const analystAtom = atom<NaiveAnalyst | null>(null);
 // --- Hooks
 
 /** User state access */
-export const useAnalyst = () => useAtom(analystAtom);
-
-/** Auth state access */
-export const useAuth = () => !!useAnalyst();
+const useAnalyst = () => useAtom(analystAtom);
 
 // --- Auth API
 
 /**
- * Log in user, only data required are initials.
+ * Auth Context hook. Supports only a single context.
  *
- * @param {string} initials - Initials of the analyst.
- * @returns {void}
+ * Multi-context support may be expanded by passing a unique
+ * symbol to key-map the analyst atom.
  **/
-export const loginAnalyst = (initials: string): void => {
-    const [, setAnalyst] = useAnalyst();
-    const analyst = new NaiveAnalyst(initials);
-    setAnalyst(analyst);
-};
+export const useAuth = (): AuthContext => {
+    const [analyst, setAnalyst] = useAnalyst();
 
-/**
- * Log out user.
- *
- * @return {void}
- **/
-export const logoutAnalyst = (): void => {
-    const [, setAnalyst] = useAnalyst();
-    setAnalyst(null);
+    /**
+     * Sign in user, only data required are initials.
+     *
+     * @param {string} initials - Initials of the analyst.
+     * @returns {void}
+     **/
+    const signIn = (initials: string): void => {
+        const analyst = new NaiveAnalyst(initials);
+        setAnalyst(analyst);
+    };
+
+    /**
+     * Sign out user.
+     *
+     * @return {void}
+     **/
+    const signOut = (): void => {
+        setAnalyst(null);
+    };
+
+    /**
+     * Check if an analyst has already logged in.
+     * @returns {boolean}
+     **/
+    const isAuthenticated = (): boolean => {
+        return !!analyst;
+    };
+
+    /** Populated auth context, fresh reference identity each update. */
+    const authContext = {
+        analyst,
+        signIn,
+        signOut,
+        isAuthenticated,
+    };
+
+    return authContext;
 };
