@@ -15,12 +15,14 @@
         "@types/react-dom": "^18.0.11",
         "framer-motion": "^9.0.2",
         "jotai": "^2.0.1",
+        "jotai-form": "^0.1.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.8.1",
         "react-scripts": "5.0.1",
         "typescript": "^4.9.5",
-        "web-vitals": "^2.1.4"
+        "web-vitals": "^2.1.4",
+        "zod": "^3.20.6"
     },
     "scripts": {
         "start": "craco start",
