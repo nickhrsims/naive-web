@@ -16,12 +16,16 @@ import {
 } from '@chakra-ui/react';
 import { FiMenu, FiBell, FiChevronDown } from 'react-icons/fi';
 
+import { analystModel } from 'entities/analyst';
+
 interface MobileProps extends FlexProps {
     title: string;
     onOpen: () => void;
 }
 
 export const MobileNav = ({ title, onOpen, ...rest }: MobileProps) => {
+    const initials = analystModel.useInitials();
+
     return (
         <Flex
             ml={{ base: 0, md: 60 }}
@@ -79,7 +83,7 @@ export const MobileNav = ({ title, onOpen, ...rest }: MobileProps) => {
                                     spacing="1px"
                                     ml="2"
                                 >
-                                    <Text fontSize="sm">Justina Clark</Text>
+                                    <Text fontSize="sm">{initials}</Text>
                                     <Text fontSize="xs" color="gray.600">
                                         Admin
                                     </Text>
