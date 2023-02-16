@@ -62,6 +62,17 @@ const analystAtom = atom<NaiveAnalyst | null>(null);
 /** User state access */
 const useAnalyst = () => useAtom(analystAtom);
 
+/** Initials data access */
+export const useInitials = () => {
+    const [analyst] = useAnalyst();
+
+    if (!analyst) {
+        return '';
+    }
+
+    return analyst.initials.value;
+};
+
 // --- Auth API
 
 /**
