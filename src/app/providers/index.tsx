@@ -1,11 +1,16 @@
 import { ReactElement } from 'react';
 import { ChakraProvider } from './chakra';
+import { BrowserRouter } from 'react-router-dom';
 
 interface Props {
-    children: ReactElement;
+    children: ReactElement | ReactElement[];
 }
 
 export default function Providers(props: Props) {
     const { children } = props;
-    return <ChakraProvider>{children}</ChakraProvider>;
+    return (
+        <ChakraProvider>
+            <BrowserRouter>{children}</BrowserRouter>
+        </ChakraProvider>
+    );
 }
