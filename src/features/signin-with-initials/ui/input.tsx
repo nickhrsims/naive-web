@@ -15,7 +15,7 @@ export default function Input(props: Props) {
     const tooltip = `Initials must be between ${analystConfig.minChars} and ${analystConfig.maxChars} characters`;
 
     const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>): void => {
-        if (event.key == 'Enter') {
+        if (event.key === 'Enter') {
             handleAction();
         }
     };
