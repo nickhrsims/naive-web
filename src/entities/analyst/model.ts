@@ -46,7 +46,7 @@ class NaiveAnalystInitials {
 // TODO Domain primitives over initials
 class NaiveAnalyst {
     // FIXME
-    private initials: NaiveAnalystInitials;
+    initials: NaiveAnalystInitials;
 
     constructor(initials: string) {
         this.initials = new NaiveAnalystInitials(initials);
