@@ -4,6 +4,13 @@ import * as config from './config';
 
 // --- Types
 
+interface AuthContext {
+    analyst: NaiveAnalyst | null;
+    isAuthenticated: () => boolean;
+    signIn: (initials: string) => void;
+    signOut: () => void;
+}
+
 /**
  * Domain primitive over an analysts initials.
  *
