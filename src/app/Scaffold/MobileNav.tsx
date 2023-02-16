@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { FiMenu, FiBell, FiChevronDown } from 'react-icons/fi';
 
+import { SignOutAction } from 'features/signout';
 import { analystModel } from 'entities/analyst';
 
 interface MobileProps extends FlexProps {
@@ -104,6 +105,8 @@ export const MobileNav = ({ title, onOpen, ...rest }: MobileProps) => {
                             <MenuItem>Sign out</MenuItem>
                         </MenuList>
                     </Menu>
+
+                    <SignOutAction />
                 </Flex>
             </HStack>
         </Flex>
